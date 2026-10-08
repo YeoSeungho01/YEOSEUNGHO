@@ -11,18 +11,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #0C1013;
-    --bg-panel: #12171B;
-    --bg-panel-2: #171D22;
-    --ink: #E4E9EC;
-    --ink-dim: #8C99A3;
-    --ink-faint: #525E68;
-    --scale: #5B8CB8;
-    --scale-dim: #325272;
-    --gold: #7E97A8;
-    --line: #232B31;
-    --rust: #C07D62;
-    --rust-dim: #6E4636;
+    --bg: #FFFFFF;
+    --bg-panel: #F5F7FA;
+    --bg-panel-2: #E6EAF0;
+    --ink: #111418;          /* 검정 */
+    --ink-dim: #4A545D;      /* 회색 */
+    --ink-faint: #6B7680;    /* 회색(보조) */
+    --scale: #2563EB;        /* 파랑: 링크·개선안 */
+    --scale-dim: #1E3A8A;    /* 군청 */
+    --gold: #1E3A8A;         /* 군청: 태그 */
+    --green: #178A5B;        /* 초록: 좋아한 부분 */
+    --green-dim: #0E5C3C;
+    --rust: #1E3A8A;         /* 군청: 싫어한 부분 */
+    --rust-dim: #9AA5B1;     /* 회색: 이전 시기 */
+    --line: #DDE2E8;
   }
 
   *{ margin:0; padding:0; box-sizing:border-box; }
@@ -43,7 +45,7 @@
     *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
   }
 
-  ::selection{ background:var(--scale-dim); color:var(--ink); }
+  ::selection{ background:#BFD3FB; color:var(--ink); }
   a{ color:inherit; }
   :focus-visible{ outline:2px solid var(--scale); outline-offset:3px; }
 
@@ -79,23 +81,6 @@
     padding:72px 0 88px;
     border-bottom:1px solid var(--line);
     overflow:hidden;
-  }
-
-  .scale-field{
-    position:absolute;
-    inset:0;
-    opacity:0.5;
-    pointer-events:none;
-    background-image: radial-gradient(ellipse 60% 45% at 80% 20%, rgba(91,140,184,0.14), transparent 60%);
-  }
-  .scale-svg{
-    position:absolute;
-    top:-14%;
-    right:-14%;
-    width:min(60vw, 620px);
-    height:auto;
-    opacity:0.7;
-    pointer-events:none;
   }
 
   .verdict .wrap{ position:relative; z-index:2; }
@@ -153,8 +138,8 @@
     top:0; left:0;
     width:3px; height:100%;
   }
-  .pane-pos::before{ background:linear-gradient(180deg, var(--scale), var(--scale-dim)); }
-  .pane-neg::before{ background:linear-gradient(180deg, var(--rust), var(--rust-dim)); }
+  .pane-pos::before{ background:linear-gradient(180deg, var(--green), var(--green-dim)); }
+  .pane-neg::before{ background:linear-gradient(180deg, var(--rust), #3B5BB5); }
 
   .pane h2{
     font-family:'Nanum Myeongjo', serif;
@@ -191,7 +176,7 @@
     line-height:1;
   }
   .rows .pct small{ font-size:15px; font-weight:700; margin-left:1px; }
-  .pane-pos .pct{ color:var(--scale); }
+  .pane-pos .pct{ color:var(--green); }
   .pane-neg .pct{ color:var(--rust); }
 
   .duo-note{
@@ -296,7 +281,7 @@
     position:absolute;
     inset:0 auto 0 0;
     width:var(--w);
-    background:var(--scale);
+    background:var(--green);
     transform-origin:left center;
   }
   .neg .bar > i{ background:var(--rust); }
@@ -374,7 +359,7 @@
     width:6px; height:6px;
     background:var(--scale);
     border-radius:50%;
-    box-shadow:0 0 8px var(--scale);
+    box-shadow:0 0 0 3px rgba(37,99,235,0.15);
   }
   .solution h3{
     font-family:'Nanum Myeongjo', serif;
@@ -483,7 +468,6 @@
     section.verdict{ padding:48px 0 64px; }
     .section-grid{ grid-template-columns:1fr; gap:14px; }
     .section-label{ padding-top:0; }
-    .scale-svg{ width:110vw; right:-40%; top:-2%; opacity:0.4; }
     .pane{ padding:26px 20px 20px; }
     .bar-row{ grid-template-columns:1fr 84px; gap:6px 12px; }
     .bar-row .bar{ grid-column:1 / -1; grid-row:2; }
@@ -507,17 +491,6 @@
 
   <!-- ===== 결론 ===== -->
   <section class="verdict" id="conclusion">
-    <div class="scale-field"></div>
-    <svg class="scale-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <pattern id="scalePattern" width="60" height="52" patternUnits="userSpaceOnUse">
-          <path d="M30 0 C10 12, 10 32, 30 52 C50 32, 50 12, 30 0 Z" fill="none" stroke="#2A333A" stroke-width="1"/>
-        </pattern>
-      </defs>
-      <rect width="600" height="600" fill="url(#scalePattern)" />
-      <path d="M30 0 C10 12, 10 32, 30 52 C50 32, 50 12, 30 0 Z" fill="none" stroke="#5B8CB8" stroke-width="1.4" transform="translate(150,180)" opacity="0.9"/>
-    </svg>
-
     <div class="wrap">
       <div class="eyebrow"><span class="rule"></span>스토어 리뷰 203건 분석 · 2023 — 2026</div>
       <h1>트릭컬 리바이브<br>재미 분석</h1>

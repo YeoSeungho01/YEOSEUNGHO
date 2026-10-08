@@ -11,16 +11,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #0C1013;
-    --bg-panel: #12171B;
-    --bg-panel-2: #171D22;
-    --ink: #E4E9EC;
-    --ink-dim: #8C99A3;
-    --ink-faint: #525E68;
-    --scale: #5B8CB8;
-    --scale-dim: #325272;
-    --gold: #7E97A8;
-    --line: #232B31;
+    --bg: #FFFFFF;
+    --bg-panel: #F5F7FA;
+    --bg-panel-2: #EBEFF4;
+    --ink: #111418;          /* 검정 */
+    --ink-dim: #4A545D;      /* 회색(본문) */
+    --ink-faint: #6B7680;    /* 회색(보조) */
+    --scale: #2563EB;        /* 파랑 */
+    --scale-dim: #1E3A8A;    /* 군청 */
+    --gold: #1E3A8A;         /* 군청(태그·배지) */
+    --green: #178A5B;        /* 초록 */
+    --line: #DDE2E8;
   }
 
   *{ margin:0; padding:0; box-sizing:border-box; }
@@ -40,7 +41,7 @@
     *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
   }
 
-  ::selection{ background:var(--scale-dim); color:var(--ink); }
+  ::selection{ background:#BFD3FB; color:var(--ink); }
 
   a{ color:inherit; }
 
@@ -65,29 +66,6 @@
     justify-content:center;
     overflow:hidden;
     border-bottom:1px solid var(--line);
-  }
-
-  .scale-field{
-    position:absolute;
-    inset:0;
-    opacity:0.5;
-    pointer-events:none;
-    background-image: radial-gradient(ellipse 60% 45% at 78% 30%, rgba(91,140,184,0.16), transparent 60%);
-  }
-
-  .scale-svg{
-    position:absolute;
-    top:-8%;
-    right:-12%;
-    width:min(70vw, 780px);
-    height:auto;
-    opacity:0.85;
-    animation: drift 34s ease-in-out infinite;
-  }
-
-  @keyframes drift{
-    0%, 100%{ transform: translate(0,0) rotate(0deg); }
-    50%{ transform: translate(-14px, 18px) rotate(1.2deg); }
   }
 
   .hero-inner{
@@ -218,7 +196,7 @@
     font-style:italic;
     color:var(--ink);
     font-size:19px;
-    border-left:2px solid var(--scale-dim);
+    border-left:2px solid var(--green);
     padding-left:20px;
     margin:26px 0;
     max-width:500px;
@@ -290,15 +268,15 @@
     align-items:center;
     gap:8px;
     font-size:12.5px;
-    color:var(--scale);
+    color:var(--green);
     margin-bottom:20px;
   }
 
   .project-status .dot{
     width:6px; height:6px;
-    background:var(--scale);
+    background:var(--green);
     border-radius:50%;
-    box-shadow:0 0 8px var(--scale);
+    box-shadow:0 0 0 3px rgba(23,138,91,0.15);
   }
 
   .project-title-row{
@@ -455,24 +433,12 @@
     .edu-item{ grid-template-columns:1fr; gap:8px; }
     .project-card{ padding:28px 22px; }
     .project-meta{ grid-template-columns:1fr; gap:16px; }
-    .scale-svg{ width:120vw; right:-40%; top:-4%; opacity:0.5; }
   }
 </style>
 </head>
 <body>
 
   <header class="hero">
-    <div class="scale-field"></div>
-    <svg class="scale-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <pattern id="scalePattern" width="60" height="52" patternUnits="userSpaceOnUse">
-          <path d="M30 0 C10 12, 10 32, 30 52 C50 32, 50 12, 30 0 Z" fill="none" stroke="#2A333A" stroke-width="1"/>
-        </pattern>
-      </defs>
-      <rect width="600" height="600" fill="url(#scalePattern)" />
-      <path d="M30 0 C10 12, 10 32, 30 52 C50 32, 50 12, 30 0 Z" fill="none" stroke="#5B8CB8" stroke-width="1.4" transform="translate(150,180)" opacity="0.9"/>
-    </svg>
-
     <div class="wrap hero-inner">
       <div class="eyebrow"><span class="rule"></span>포트폴리오</div>
       <h1>여승호</h1>
@@ -636,6 +602,47 @@
           </div>
 
           <a class="project-link" href="trickle-analysis.html">분석 결과 보기</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-status"><span class="dot"></span>2026.05 — 2026.09</div>
+          <div class="project-title-row">
+            <span class="project-title">TeleDigest</span>
+          </div>
+          <div class="project-sub">개인 프로젝트 · 데이터 수집/정제 자동화</div>
+
+          <div class="project-meta">
+            <div class="meta-item">
+              <div class="meta-label">구분</div>
+              <div class="meta-value">데이터 자동화</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">역할</div>
+              <div class="meta-value">설계 · 개발</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">사용 기술</div>
+              <div class="meta-value">Python, Telethon</div>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <div class="project-body-label">한 일 &amp; 성과</div>
+            <ul>
+              <li>텔레그램 주식 채널 메시지를 자동 수집하고, 정규식으로 종목명·종목코드·현재가·목표가를 추출해 상승여력(%)을 자동 계산</li>
+              <li>텍스트 유사도 0.85 기준으로 복붙 글을 걸러내되 가격이 다르면 별개 글로 유지. 2,000건 처리에 0.13초(개발 환경 기준)</li>
+              <li>관심종목 매칭, 감성 점수, 독립 채널 수 기준 집중 언급을 4개 시트 엑셀 보고서로 출력</li>
+              <li>테스트 중 발견한 오작동 6건(종목 오분류, 잡담 오인식, 가격 갱신 글 삭제 등)을 원인 분석 후 수정</li>
+              <li>수집·파싱(collector.py)과 분석(analyzer.py)을 모듈로 분리하고, API 키 파일은 저장소에서 제외</li>
+            </ul>
+          </div>
+
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Telethon</span>
+            <span class="tech-tag">openpyxl</span>
+            <span class="tech-tag">정규식 파싱</span>
+          </div>
         </div>
       </div>
     </div>

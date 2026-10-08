@@ -460,6 +460,7 @@
         <li><a href="#about" data-panel="about">소개</a></li>
         <li><a href="#education" data-panel="education">학력</a></li>
         <li><a href="#project" data-panel="project">프로젝트</a></li>
+        <li><a href="#reading" data-panel="reading">독서</a></li>
       </ul>
     </nav>
 
@@ -671,6 +672,52 @@
     </div>
   </section>
 
+  <section class="panel" id="reading">
+    <div class="wrap section-grid">
+      <div class="section-label"><span class="num">04</span>독서</div>
+      <div>
+        <div class="project-card">
+          <div class="project-status"><span class="dot"></span>진행 중 · 2026.10</div>
+          <div class="project-title-row">
+            <span class="project-title">클로드 코드 독서 체크리스트</span>
+          </div>
+          <div class="project-sub">개인 학습 · 바이브코딩</div>
+
+          <div class="project-meta">
+            <div class="meta-item">
+              <div class="meta-label">구분</div>
+              <div class="meta-value">독서 · 학습 기록</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">목표</div>
+              <div class="meta-value">3장까지 공부하기</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">사용 기술</div>
+              <div class="meta-value">HTML, CSS, JavaScript</div>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <div class="project-body-label">내용</div>
+            <ul>
+              <li>클로드 코드 책 5장과 부록, 129개 항목을 소절별로 정리하고 항목마다 읽음 체크 버튼을 둠</li>
+              <li>항목별 YouTube·블로그 검색 링크와 공식 문서 링크를 함께 두어 바로 찾아볼 수 있게 함</li>
+              <li>장별·전체 진행률과 목표(1~3장) 달성 여부를 표시</li>
+            </ul>
+          </div>
+
+          <div class="tech-tags">
+            <span class="tech-tag">Claude Code</span>
+            <span class="tech-tag">바이브코딩</span>
+            <span class="tech-tag">학습 관리</span>
+          </div>
+
+          <a class="project-link" href="claude-code-checklist.html">체크리스트 보기</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   </main>
 
@@ -686,7 +733,7 @@
 
   <script>
     (function(){
-      var ids = ['about', 'education', 'project'];
+      var ids = ['about', 'education', 'project', 'reading'];
       var links = document.querySelectorAll('.side-nav a');
 
       function show(id){

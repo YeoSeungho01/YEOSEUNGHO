@@ -35,6 +35,8 @@
     font-weight:300;
     line-height:1.7;
     overflow-x:hidden;
+    word-break:keep-all;
+    overflow-wrap:break-word;
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -56,90 +58,100 @@
     padding:0 32px;
   }
 
-  /* ---------- HERO ---------- */
+  /* ---------- LAYOUT: 왼쪽 메뉴바 ---------- */
 
-  .hero{
-    position:relative;
-    min-height:100svh;
+  .layout{
+    display:grid;
+    grid-template-columns:268px minmax(0, 1fr);
+    min-height:100vh;
+  }
+
+  .content{ min-width:0; display:flex; flex-direction:column; min-height:100vh; }
+  .content > main{ flex:1 0 auto; }
+
+  .sidebar{
+    position:sticky;
+    top:0;
+    align-self:start;
+    height:100vh;
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    overflow:hidden;
-    border-bottom:1px solid var(--line);
+    padding:56px 28px 36px;
+    background:var(--bg-panel);
+    border-right:1px solid var(--line);
   }
 
-  .hero-inner{
-    position:relative;
-    z-index:2;
-    padding-top:64px;
-    padding-bottom:64px;
-  }
-
-  .eyebrow{
-    font-size:13.5px;
-    letter-spacing:0.02em;
-    color:var(--ink-dim);
-    margin-bottom:28px;
+  .brand .eyebrow{
+    font-size:13px;
+    color:var(--ink-faint);
+    margin-bottom:18px;
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:10px;
   }
+  .brand .eyebrow .rule{ width:26px; height:1px; background:var(--scale); }
 
-  .eyebrow .rule{
-    width:34px;
-    height:1px;
-    background:var(--scale);
-  }
-
-  .hero h1{
+  .brand h1{
     font-family:'Nanum Myeongjo', serif;
     font-weight:800;
-    font-size:clamp(56px, 11vw, 108px);
-    line-height:1.02;
-    letter-spacing:-0.01em;
+    font-size:40px;
+    line-height:1.1;
     color:var(--ink);
-    margin-bottom:26px;
+    margin-bottom:16px;
   }
 
-  .hero .tagline{
+  .brand .tagline{
     font-family:'Nanum Myeongjo', serif;
-    font-weight:400;
     font-style:italic;
-    font-size:clamp(18px, 2.6vw, 24px);
-    color:var(--ink-dim);
-    max-width:520px;
-    margin-bottom:56px;
-    line-height:1.55;
-  }
-
-  .hero-foot{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:16px;
-    border-top:1px solid var(--line);
-    padding-top:22px;
-  }
-
-  .hero-foot .role{
     font-size:14.5px;
+    line-height:1.6;
     color:var(--ink-dim);
   }
 
-  .hero-foot .role strong{
+  .side-nav{ margin-top:44px; }
+  .side-nav ul{ list-style:none; }
+
+  .side-nav a{
+    display:block;
+    padding:13px 16px;
+    margin-bottom:4px;
+    font-size:15.5px;
+    color:var(--ink-dim);
+    text-decoration:none;
+    border-left:2px solid transparent;
+    transition:color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  }
+  .side-nav a:hover{ color:var(--scale); }
+  .side-nav a[aria-current="page"]{
     color:var(--ink);
     font-weight:500;
+    background:var(--bg);
+    border-left-color:var(--scale);
   }
 
-  .hero-foot .mail{
-    font-size:14.5px;
+  .side-foot{
+    margin-top:auto;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-size:13px;
+    color:var(--ink-dim);
+    line-height:1.6;
+  }
+  .side-foot strong{ color:var(--ink); font-weight:500; }
+  .side-foot a{
+    display:inline-block;
+    margin-top:8px;
     color:var(--scale);
     text-decoration:none;
     border-bottom:1px solid transparent;
     transition:border-color 0.2s ease;
+    word-break:break-all;
   }
-  .hero-foot .mail:hover{ border-color:var(--scale); }
+  .side-foot a:hover{ border-color:var(--scale); }
+
+  /* JS가 켜져 있을 때만 메뉴별로 한 섹션씩 보여줌 */
+  .js .panel{ display:none; }
+  .js .panel.is-active{ display:block; }
 
   /* ---------- SECTION GENERIC ---------- */
 
@@ -149,6 +161,7 @@
   }
 
   section:last-of-type{ border-bottom:none; }
+  .panel{ border-bottom:none; }
 
   .section-grid{
     display:grid;
@@ -378,38 +391,6 @@
   }
   .project-link:hover{ border-color:var(--scale); }
 
-  /* ---------- CONTACT ---------- */
-
-  .contact-section{
-    padding-bottom:120px;
-  }
-
-  .contact-inner{
-    text-align:left;
-  }
-
-  .contact-inner .section-title{
-    max-width:480px;
-  }
-
-  .contact-link{
-    display:inline-flex;
-    align-items:baseline;
-    gap:14px;
-    font-family:'Nanum Myeongjo', serif;
-    font-size:clamp(24px, 4vw, 32px);
-    color:var(--ink);
-    text-decoration:none;
-    padding-bottom:10px;
-    border-bottom:1px solid var(--line);
-    transition:border-color 0.25s ease, color 0.25s ease;
-  }
-
-  .contact-link:hover{
-    color:var(--scale);
-    border-color:var(--scale);
-  }
-
   footer{
     padding:32px 0 48px;
     font-size:12.5px;
@@ -425,8 +406,34 @@
 
   /* ---------- RESPONSIVE ---------- */
 
+  @media (max-width:900px){
+    .layout{ grid-template-columns:1fr; }
+    .sidebar{
+      position:static;
+      height:auto;
+      padding:28px 22px 0;
+      border-right:none;
+      border-bottom:1px solid var(--line);
+    }
+    .brand h1{ font-size:32px; margin-bottom:10px; }
+    .brand .eyebrow{ margin-bottom:12px; }
+    .side-nav{ margin:20px -22px 0; padding:0 22px; overflow-x:auto; }
+    .side-nav ul{ display:flex; gap:4px; }
+    .side-nav a{
+      margin:0;
+      padding:12px 16px;
+      white-space:nowrap;
+      border-left:none;
+      border-bottom:2px solid transparent;
+      background:none;
+    }
+    .side-nav a[aria-current="page"]{ background:none; border-bottom-color:var(--scale); }
+    .side-foot{ display:none; }
+  }
+
   @media (max-width:720px){
     .wrap{ padding:0 22px; }
+    section{ padding:64px 0; }
     .section-grid{ grid-template-columns:1fr; gap:16px; }
     .section-label{ display:flex; align-items:center; gap:12px; }
     .section-label .num{ margin-bottom:0; }
@@ -435,24 +442,38 @@
     .project-meta{ grid-template-columns:1fr; gap:16px; }
   }
 </style>
+<script>document.documentElement.className += ' js';</script>
 </head>
 <body>
 
-  <header class="hero">
-    <div class="wrap hero-inner">
+  <div class="layout">
+
+  <aside class="sidebar">
+    <div class="brand">
       <div class="eyebrow"><span class="rule"></span>포트폴리오</div>
       <h1>여승호</h1>
       <p class="tagline">기획서의 상상을 완벽한 손맛으로 빚어내는 클라이언트</p>
-      <div class="hero-foot">
-        <div class="role">유한대학교 컴퓨터소프트웨어과 <strong>게임콘텐츠전공</strong></div>
-        <a class="mail" href="mailto:ysh07081720@gmail.com">ysh07081720@gmail.com</a>
-      </div>
     </div>
-  </header>
+
+    <nav class="side-nav" aria-label="포트폴리오 메뉴">
+      <ul>
+        <li><a href="#about" data-panel="about">소개</a></li>
+        <li><a href="#education" data-panel="education">학력</a></li>
+        <li><a href="#project" data-panel="project">프로젝트</a></li>
+      </ul>
+    </nav>
+
+    <div class="side-foot">
+      유한대학교 컴퓨터소프트웨어과<br><strong>게임콘텐츠전공</strong><br>
+      <a href="mailto:ysh07081720@gmail.com">ysh07081720@gmail.com</a>
+    </div>
+  </aside>
+
+  <div class="content">
 
   <main>
 
-  <section id="about">
+  <section class="panel" id="about">
     <div class="wrap section-grid">
       <div class="section-label"><span class="num">01</span>소개</div>
       <div class="about-body">
@@ -463,7 +484,7 @@
     </div>
   </section>
 
-  <section id="education">
+  <section class="panel" id="education">
     <div class="wrap section-grid">
       <div class="section-label"><span class="num">02</span>학력</div>
       <div class="edu-list">
@@ -485,7 +506,7 @@
     </div>
   </section>
 
-  <section id="project">
+  <section class="panel" id="project">
     <div class="wrap section-grid">
       <div class="section-label"><span class="num">03</span>프로젝트</div>
       <div>
@@ -650,15 +671,6 @@
     </div>
   </section>
 
-  <section class="contact-section" id="contact">
-    <div class="wrap section-grid">
-      <div class="section-label"><span class="num">04</span>연락</div>
-      <div class="contact-inner">
-        <h2 class="section-title">함께 만들 프로젝트가 있다면</h2>
-        <a class="contact-link" href="mailto:ysh07081720@gmail.com">ysh07081720@gmail.com</a>
-      </div>
-    </div>
-  </section>
 
   </main>
 
@@ -668,6 +680,36 @@
       <span>최종 수정 2026.10</span>
     </div>
   </footer>
+
+  </div>
+  </div>
+
+  <script>
+    (function(){
+      var ids = ['about', 'education', 'project'];
+      var links = document.querySelectorAll('.side-nav a');
+
+      function show(id){
+        if(ids.indexOf(id) === -1){ id = 'about'; }
+        ids.forEach(function(k){
+          var el = document.getElementById(k);
+          if(el){ el.classList.toggle('is-active', k === id); }
+        });
+        links.forEach(function(a){
+          if(a.getAttribute('data-panel') === id){ a.setAttribute('aria-current', 'page'); }
+          else{ a.removeAttribute('aria-current'); }
+        });
+      }
+
+      function fromHash(){
+        show(location.hash.replace('#', ''));
+        window.scrollTo(0, 0);
+      }
+
+      window.addEventListener('hashchange', fromHash);
+      fromHash();
+    })();
+  </script>
 
 </body>
 </html>

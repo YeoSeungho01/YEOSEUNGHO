@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>그림으로 쉽게 이해하는 웹/HTTP/네트워크 독서 체크리스트</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--panel:#F5F7FA;--panel2:#E6EAF0;--ink:#0A0D10;--dim:#262C33;--faint:#444E57;--blue:#2563EB;--navy:#1E3A8A;--green:#0F6B45;--green-bg:#E3F3EA;--line:#C9D0D8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.7 'Noto Sans KR',sans-serif;word-break:keep-all;overflow-wrap:break-word}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header.top{padding:48px 0 24px}
+.back{font-size:14px;color:var(--navy);text-decoration:none;font-weight:700}
+h1{font:800 clamp(26px,5vw,38px)/1.3 'Nanum Myeongjo',serif;margin:12px 0 6px}
+.tags span{display:inline-block;font-size:13px;font-weight:700;color:var(--navy);background:var(--panel2);padding:2px 10px;border-radius:99px;margin:0 6px 6px 0}
+.goal{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card b{display:block;font-size:13px;color:var(--faint);margin-bottom:2px}
+.card.done{background:var(--green-bg);border-color:var(--green)}
+.card .st{display:inline-block;margin-top:6px;font-size:13px;font-weight:700;color:var(--navy)}
+.card.done .st{color:var(--green)}
+.wide{grid-column:1/-1}
+.sum{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:8px}
+.sum .row{display:flex;justify-content:space-between;font-weight:700;font-size:15px}
+.bar{height:8px;background:var(--panel2);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--blue);transition:width .3s}
+.bar.ok i{background:var(--green)}
+.ch{margin-top:36px}
+.chh{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.chh h2{font:800 22px/1.4 'Nanum Myeongjo',serif;margin:0;flex:1 1 320px}
+.cp{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;min-width:150px}.cp .bar{width:90px}
+.sub{margin-top:20px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.subh{display:flex;justify-content:space-between;gap:8px;align-items:baseline}.part{font:700 15px "Noto Sans KR",sans-serif;color:var(--green);margin:40px 0 -24px}.no{color:var(--faint);font-weight:700;margin-right:6px}.meta{color:var(--faint);margin:0}.sp{font-size:13px;font-weight:700;color:var(--faint)}.subh h3{margin:0;font-size:17px;font-weight:700;color:var(--navy)}
+.docs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0 4px}
+.dl{font-size:13px;color:var(--faint);font-weight:700;margin-right:2px}
+.lnk{font-size:13px;font-weight:700;text-decoration:none;padding:2px 10px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--navy)}
+.lnk:hover{border-color:var(--blue);color:var(--blue)}
+.lnk.yt{color:#9b1c1c}.lnk.bl{color:var(--green)}
+ul{list-style:none;margin:8px 0 0;padding:0}
+.item{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 0;border-top:1px solid var(--line)}
+.item .t{flex:1 1 240px}
+.item.on .t{color:var(--faint);text-decoration:line-through;text-decoration-color:var(--green)}
+.ls{display:flex;gap:6px}
+.chk{display:inline-flex;align-items:center;gap:6px;font:700 14px 'Noto Sans KR',sans-serif;color:var(--ink);background:#fff;border:1.5px solid var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer;min-height:36px}
+.chk .box{width:16px;height:16px;border:2px solid var(--ink);border-radius:4px;display:inline-block;position:relative}
+.chk[aria-pressed=true]{background:var(--green);border-color:var(--green);color:#fff}
+.chk[aria-pressed=true] .box{border-color:#fff}
+.chk[aria-pressed=true] .box::after{content:"";position:absolute;left:3px;top:-1px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.chk:focus-visible,.lnk:focus-visible,.reset:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.note{font-size:13px;color:var(--faint);margin-top:32px;line-height:1.7}
+.reset{font:700 13px 'Noto Sans KR',sans-serif;background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px 10px;cursor:pointer;margin-top:10px}
+@media(max-width:560px){.goal{grid-template-columns:1fr}.item{padding:12px 0}}
+</style></head><body><div class="wrap">
+<header class="top">
+<a class="back" href="/#reading">← 포트폴리오로</a>
+<h1>그림으로 쉽게 이해하는 웹/HTTP/네트워크 독서 체크리스트</h1>
+<div class="tags"><span>네트워크</span><span>HTTP</span><span>독서체크리스트</span></div>
+<p class="meta">임지영 지음 · 위키북스 · 9개 장 목차 기준</p></header>
+<div class="sum"><div class="row"><span>전체 진행률</span><span id="allT"></span></div><div class="bar" id="allBar"><i></i></div></div>
+<section class="ch" id="c0"><div class="chh"><h2>목차 (9개 장)</h2><div class="cp"><span class="cpt"></span><div class="bar"><i></i></div></div></div><div class="sub"><ul><li class="item" data-id="w1" data-done="1"><button class="chk" type="button" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lab">읽음</span></button><span class="t"><span class="no">1장</span>웹</span><span class="ls"><a class="lnk doc" href="https://ko.wikipedia.org/wiki/%EC%9B%94%EB%93%9C_%EC%99%80%EC%9D%B4%EB%93%9C_%EC%9B%B9" target="_blank" rel="noopener">월드 와이드 웹</a><a class="lnk yt" href="https://www.youtube.com/results?search_query=%EC%9B%B9%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC" target="_blank" rel="noopener">YouTube</a><a class="lnk bl" href="https://search.naver.com/search.naver?where=blog&query=%EC%9B%B9%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC" target="_blank" rel="noopener">블로그</a></span></li><li class="item" data-id="w2" data-done="1"><button class="chk" type="button" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lab">읽음</span></button><span class="t"><span class="no">2장</span>미리 알아두면 좋은 네트워크 개념</span><span class="ls"><a class="lnk yt" href="https://www.youtube.com/results?search_query=%EB%AF%B8%EB%A6%AC%20%EC%95%8C%EC%95%84%EB%91%90%EB%A9%B4%20%EC%A2%8B%EC%9D%80%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EA%B0%9C%EB%85%90" target="_blank" rel="noopener">YouTube</a><a class="lnk bl" href="https://search.naver.com/search.naver?where=blog&query=%EB%AF%B8%EB%A6%AC%20%EC%95%8C%EC%95%84%EB%91%90%EB%A9%B4%20%EC%A2%8B%EC%9D%80%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EA%B0%9C%EB%85%90" target="_blank" rel="noopener">블로그</a></span></li><li class="item" data-id="w3" data-done="1"><button class="chk" type="button" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lab">읽음</span></button><span class="t"><span class="no">3장</span>URL</span><span class="ls"><a class="lnk doc" href="https://ko.wikipedia.org/wiki/URL" target="_blank" rel="noopener">URL</a><a class="lnk yt" href="https://www.youtube.com/results?search_query=URL%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC" target="_blank" rel="noopener">YouTube</a><a class="lnk bl" href="https://search.naver.com/search.naver?where=blog&query=URL%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC" target="_blank" rel="noopener">블로그</a></span></li><li class="item" data-id="w4" data-done="1"><button class="chk" type="button" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lab">읽음</span></button><span class="t"><span class="no">4장</span>IP</span><span class="ls"><a class="lnk doc" href="https://ko.wikipedia.org/wiki/%EC%9D%B8%ED%84%B0%EB%84%B7_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C" target="_blank" rel="noopener">인터넷 프로토콜</a><a class="lnk yt" href="https://www.youtube.com/results?search_query=IP%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC" target="_blank" rel="noopener">YouTube</a><a class="lnk bl" href="https://search.naver.com/search.naver?where=blog&query=IP%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC" target="_blank" rel="noopener">블로그</a></span></li><li class="item" data-id="w5" data-done="1"><button class="chk" type="button" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lab">읽음</span></button><span class="t"><span class="no">5장</span>TCP</span><span class="ls"><a class="lnk doc" href="https://ko.wikipedia.org/wiki/%EC%A0%84%EC%86%A1_%EC%A0%9C%EC%96%B4_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C" target="_blank" rel="noopener">전송 제어 프로토콜</a><a class="lnk yt" href="https://www.youtube.com/results?search_query=TCP%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC" target="_blank" rel="noopener">YouTube</a><a class="lnk bl" href="https://search.naver.com/search.naver?where=blog&query=TCP%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC" target="_blank" rel="noopener">블로그</a></span></li><li class="item" data-id="w6" data-done="1"><button class="chk" type="button" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lab">읽음</span></button><span class="t"><span class="no">6장</span>HTTP</span><span class="ls"><a class="lnk doc" href="https://ko.wikipedia.org/wiki/HTTP" target="_blank" rel="noopener">HTTP</a><a class="lnk yt" href="https://www.youtube.com/results?search_query=HTTP" target="_blank" rel="noopener">YouTube</a><a class="lnk bl" href="https://search.naver.com/search.naver?where=blog&query=HTTP" target="_blank" rel="noopener">블로그</a></span></li><li class="item" data-id="w7" data-done="1"><button class="chk" type="button" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lab">읽음</span></button><span class="t"><span class="no">7장</span>HTTP 특징과 데이터 저장 방식</span><span class="ls"><a class="lnk doc" href="https://ko.wikipedia.org/wiki/HTTP_%EC%BF%A0%ED%82%A4" target="_blank" rel="noopener">HTTP 쿠키</a><a class="lnk yt" href="https://www.youtube.com/results?search_query=HTTP%20%ED%8A%B9%EC%A7%95%EA%B3%BC%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A0%80%EC%9E%A5%20%EB%B0%A9%EC%8B%9D" target="_blank" rel="noopener">YouTube</a><a class="lnk bl" href="https://search.naver.com/search.naver?where=blog&query=HTTP%20%ED%8A%B9%EC%A7%95%EA%B3%BC%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A0%80%EC%9E%A5%20%EB%B0%A9%EC%8B%9D" target="_blank" rel="noopener">블로그</a></span></li><li class="item" data-id="w8" data-done="1"><button class="chk" type="button" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lab">읽음</span></button><span class="t"><span class="no">8장</span>네트워크 접속 장치</span><span class="ls"><a class="lnk yt" href="https://www.youtube.com/results?search_query=%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EC%A0%91%EC%86%8D%20%EC%9E%A5%EC%B9%98" target="_blank" rel="noopener">YouTube</a><a class="lnk bl" href="https://search.naver.com/search.naver?where=blog&query=%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EC%A0%91%EC%86%8D%20%EC%9E%A5%EC%B9%98" target="_blank" rel="noopener">블로그</a></span></li><li class="item" data-id="w9" data-done="1"><button class="chk" type="button" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lab">읽음</span></button><span class="t"><span class="no">9장</span>OSI 7계층 다시</span><span class="ls"><a class="lnk doc" href="https://ko.wikipedia.org/wiki/OSI_%EB%AA%A8%ED%98%95" target="_blank" rel="noopener">OSI 모형</a><a class="lnk yt" href="https://www.youtube.com/results?search_query=OSI%207%EA%B3%84%EC%B8%B5%20%EB%8B%A4%EC%8B%9C" target="_blank" rel="noopener">YouTube</a><a class="lnk bl" href="https://search.naver.com/search.naver?where=blog&query=OSI%207%EA%B3%84%EC%B8%B5%20%EB%8B%A4%EC%8B%9C" target="_blank" rel="noopener">블로그</a></span></li></ul></div></section>
+<p class="note">‘읽음’ 버튼을 누르면 이 브라우저에 저장됩니다(다른 기기와는 공유되지 않음). 참고 문서 링크는 한국어 위키백과입니다. YouTube·블로그 버튼은 항목명으로 검색한 결과 페이지로 연결되므로, 마음에 드는 영상/글을 직접 골라 보세요.<br><button class="reset" id="reset" type="button">체크 초기화</button></p>
+</div>
+<script>
+(function(){
+var KEY='web-net-v1',st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'null')||{};}catch(e){st={};}
+var items=[].slice.call(document.querySelectorAll('.item'));
+function on(el){var id=el.getAttribute('data-id');return id in st?!!st[id]:el.getAttribute('data-done')==='1';}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+function bar(b,p){b.querySelector('i').style.width=p+'%';b.classList.toggle('ok',p===100);}
+function render(){
+ items.forEach(function(el){var v=on(el);el.classList.toggle('on',v);el.querySelector('.chk').setAttribute('aria-pressed',v);});
+ function cnt(list){var d=0;list.forEach(function(e){if(on(e))d++;});return d;}
+ document.querySelectorAll('.ch').forEach(function(c){var l=[].slice.call(c.querySelectorAll('.item')),d=cnt(l),p=Math.round(d/l.length*100);
+  c.querySelector('.cpt').textContent=d+'/'+l.length+' ('+p+'%)';bar(c.querySelector('.bar'),p);
+  c.querySelectorAll('.sub').forEach(function(s){var q=[].slice.call(s.querySelectorAll('.item'));var sp=s.querySelector('.sp');if(sp){sp.textContent=cnt(q)+'/'+q.length;}});});
+ var a=cnt(items),ap=Math.round(a/items.length*100);document.getElementById('allT').textContent=a+'/'+items.length+' ('+ap+'%)';bar(document.getElementById('allBar'),ap);
+}
+items.forEach(function(el){el.querySelector('.chk').addEventListener('click',function(){st[el.getAttribute('data-id')]=!on(el);save();render();});});
+document.getElementById('reset').addEventListener('click',function(){if(confirm('모든 체크를 초기 상태로 되돌릴까요?')){st={};save();render();}});
+render();
+})();
+</script></body></html>

@@ -443,6 +443,16 @@
   }
 </style>
 <script>document.documentElement.className += ' js';</script>
+<style>
+.genre-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.gbtn{font:700 14px 'Noto Sans KR',sans-serif;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:99px;padding:6px 16px;cursor:pointer}
+.gbtn b{font-weight:700;color:var(--ink-faint);margin-left:4px}
+.gbtn:hover{border-color:var(--scale)}
+.gbtn.is-on{background:var(--scale-dim);border-color:var(--scale-dim);color:#fff}
+.gbtn.is-on b{color:#fff}
+.gbtn:focus-visible{outline:3px solid var(--scale);outline-offset:2px}
+.book[hidden]{display:none}
+</style>
 </head>
 <body>
 
@@ -537,7 +547,7 @@
           <div class="project-body">
             <div class="project-body-label">한 일 &amp; 성과</div>
             <ul>
-              <li>전체적인 기능 구현 및 맵 제작</li>
+              <li>전체적인 기능 구현과 맵 제작을 맡고 있습니다</li>
             </ul>
           </div>
 
@@ -573,8 +583,8 @@
           <div class="project-body">
             <div class="project-body-label">한 일</div>
             <ul>
-              <li>몬스터 전반의 컨셉과 스킬을 기획</li>
-              <li>무기별 데미지와 효과 스킬을 기획</li>
+              <li>몬스터 전반의 컨셉과 스킬을 기획했습니다</li>
+              <li>무기별 데미지와 효과 스킬을 기획했습니다</li>
             </ul>
           </div>
 
@@ -613,9 +623,9 @@
           <div class="project-body">
             <div class="project-body-label">한 일 &amp; 성과</div>
             <ul>
-              <li>스토어 리뷰 203건을 한 건씩 읽고 좋아한 점과 불만을 주제별로 분류해 비율로 정리</li>
-              <li>불만 1위가 접속 안정성(48%)이고, 결제 불만은 2023년 42%에서 최근 17%로 줄었음을 확인</li>
-              <li>BM과 전면 개편을 제외하고, 유저가 직접 낸 제안을 바탕으로 개선안 6개를 도출</li>
+              <li>스토어 리뷰 203건을 한 건씩 읽고, 좋아한 점과 불만을 주제별로 분류해 비율로 정리했습니다</li>
+              <li>불만 1위가 접속 안정성(48%)이고, 결제 불만은 2023년 42%에서 최근 17%로 줄었다는 것을 확인했습니다</li>
+              <li>BM과 전면 개편은 제외하고, 유저가 직접 낸 제안을 바탕으로 개선안 6개를 도출했습니다</li>
             </ul>
           </div>
 
@@ -653,11 +663,11 @@
           <div class="project-body">
             <div class="project-body-label">한 일 &amp; 성과</div>
             <ul>
-              <li>텔레그램 주식 채널 메시지를 자동 수집하고, 정규식으로 종목명·종목코드·현재가·목표가를 추출해 상승여력(%)을 자동 계산</li>
-              <li>텍스트 유사도 0.85 기준으로 복붙 글을 걸러내되 가격이 다르면 별개 글로 유지. 2,000건 처리에 0.13초(개발 환경 기준)</li>
-              <li>관심종목 매칭, 감성 점수, 독립 채널 수 기준 집중 언급을 4개 시트 엑셀 보고서로 출력</li>
-              <li>테스트 중 발견한 오작동 6건(종목 오분류, 잡담 오인식, 가격 갱신 글 삭제 등)을 원인 분석 후 수정</li>
-              <li>수집·파싱(collector.py)과 분석(analyzer.py)을 모듈로 분리하고, API 키 파일은 저장소에서 제외</li>
+              <li>텔레그램 주식 채널 메시지를 자동으로 수집하고, 정규식으로 종목명·종목코드·현재가·목표가를 추출해 상승여력(%)을 자동으로 계산했습니다</li>
+              <li>텍스트 유사도 0.85 기준으로 복붙 글을 걸러내되, 가격이 다르면 별개 글로 유지했습니다. 2,000건 처리에 0.13초가 걸렸습니다(개발 환경 기준).</li>
+              <li>관심종목 매칭, 감성 점수, 독립 채널 수 기준 집중 언급을 4개 시트 엑셀 보고서로 출력했습니다</li>
+              <li>테스트 중 발견한 오작동 6건(종목 오분류, 잡담 오인식, 가격 갱신 글 삭제 등)의 원인을 분석해 수정했습니다</li>
+              <li>수집·파싱(collector.py)과 분석(analyzer.py)을 모듈로 분리하고, API 키 파일은 저장소에서 제외했습니다</li>
             </ul>
           </div>
 
@@ -676,7 +686,12 @@
     <div class="wrap section-grid">
       <div class="section-label"><span class="num">04</span>독서</div>
       <div>
-        <div class="project-card">
+        <div class="genre-bar" role="group" aria-label="장르 선택">
+          <button type="button" class="gbtn is-on" data-g="전체" aria-pressed="true">전체 <b></b></button>
+          <button type="button" class="gbtn" data-g="IT·개발" aria-pressed="false">IT·개발 <b></b></button>
+          <button type="button" class="gbtn" data-g="소설" aria-pressed="false">소설 <b></b></button>
+        </div>
+        <div class="project-card book" data-genre="IT·개발">
           <div class="project-status"><span class="dot"></span>진행 중 · 2026.10</div>
           <div class="project-title-row">
             <span class="project-title">클로드 코드 독서 체크리스트</span>
@@ -701,9 +716,9 @@
           <div class="project-body">
             <div class="project-body-label">내용</div>
             <ul>
-              <li>클로드 코드 책 5장과 부록, 129개 항목을 소절별로 정리하고 항목마다 읽음 체크 버튼을 둠</li>
-              <li>항목별 YouTube·블로그 검색 링크와 공식 문서 링크를 함께 두어 바로 찾아볼 수 있게 함</li>
-              <li>장별·전체 진행률과 목표(1~3장) 달성 여부를 표시</li>
+              <li>클로드 코드 책 5장과 부록, 129개 항목을 소절별로 정리하고 항목마다 읽음 체크 버튼을 두었습니다</li>
+              <li>항목별 YouTube·블로그 검색 링크와 공식 문서 링크를 함께 두어 바로 찾아볼 수 있게 했습니다</li>
+              <li>장별·전체 진행률과 목표(1~3장) 달성 여부를 표시합니다</li>
             </ul>
           </div>
 
@@ -715,6 +730,191 @@
 
           <a class="project-link" href="claude-code-checklist.html">체크리스트 보기</a>
         </div>
+
+        <div class="project-card book" data-genre="IT·개발">
+          <div class="project-status"><span class="dot"></span>완독 · 2024.06</div>
+          <div class="project-title-row">
+            <span class="project-title">A Tour of C++ 독서 체크리스트</span>
+          </div>
+          <div class="project-sub">Bjarne Stroustrup · C++</div>
+
+          <div class="project-meta">
+            <div class="meta-item">
+              <div class="meta-label">구분</div>
+              <div class="meta-value">IT · 프로그래밍</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">저자</div>
+              <div class="meta-value">Bjarne Stroustrup</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">사용 기술</div>
+              <div class="meta-value">HTML, CSS, JavaScript</div>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <div class="project-body-label">내용</div>
+            <ul>
+              <li>C++의 창시자가 쓴 입문서의 19개 장과 부록, 133개 절을 목차대로 정리하고 절마다 읽음 체크 버튼을 두었습니다</li>
+              <li>절별 YouTube·블로그 검색 링크와 cppreference 참고 문서 링크를 함께 두었습니다</li>
+              <li>장별·전체 진행률을 표시합니다</li>
+            </ul>
+          </div>
+
+          <div class="tech-tags">
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">학습 관리</span>
+          </div>
+
+          <a class="project-link" href="tour-of-cpp-checklist.html">체크리스트 보기</a>
+        </div>
+
+        <div class="project-card book" data-genre="소설">
+          <div class="project-status"><span class="dot"></span>완독 · 2026.01</div>
+          <div class="project-title-row">
+            <span class="project-title">미드나잇 라이브러리</span>
+          </div>
+          <div class="project-sub">매트 헤이그 · 소설</div>
+
+          <div class="project-meta">
+            <div class="meta-item">
+              <div class="meta-label">구분</div>
+              <div class="meta-value">소설</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">저자</div>
+              <div class="meta-value">매트 헤이그</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">원제</div>
+              <div class="meta-value">The Midnight Library</div>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <div class="project-body-label">책 소개</div>
+            <ul>
+              <li>삶과 죽음 사이에 놓인 주인공 노라가, 선택하지 않은 삶이 책 한 권씩 꽂힌 도서관에서 다른 인생을 살아 보는 이야기입니다</li>
+              <li>후회와 선택, 그리고 지금의 삶의 의미를 다루고 있습니다</li>
+            </ul>
+          </div>
+
+          <div class="tech-tags">
+            <span class="tech-tag">소설</span>
+            <span class="tech-tag">선택과 후회</span>
+          </div>
+        </div>
+
+        <div class="project-card book" data-genre="소설">
+          <div class="project-status"><span class="dot"></span>완독 · 2026.02</div>
+          <div class="project-title-row">
+            <span class="project-title">혼자서 종이우산을 쓰고 가다</span>
+          </div>
+          <div class="project-sub">에쿠니 가오리 · 일본 소설</div>
+
+          <div class="project-meta">
+            <div class="meta-item">
+              <div class="meta-label">구분</div>
+              <div class="meta-value">소설</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">저자</div>
+              <div class="meta-value">에쿠니 가오리</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">원제</div>
+              <div class="meta-value">ひとりでカラカサさしてゆく</div>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <div class="project-body-label">책 소개</div>
+            <ul>
+              <li>하나의 사건을 계기로, 남겨진 여러 인물의 일상이 흔들리고 이어지는 과정을 그린 장편소설입니다</li>
+              <li>담담하고 섬세한 문체로 상실과 삶의 끝을 다루고 있습니다</li>
+            </ul>
+          </div>
+
+          <div class="tech-tags">
+            <span class="tech-tag">일본 소설</span>
+            <span class="tech-tag">상실</span>
+          </div>
+        </div>
+
+        <div class="project-card book" data-genre="소설">
+          <div class="project-status"><span class="dot"></span>완독 · 2026.02</div>
+          <div class="project-title-row">
+            <span class="project-title">꿈의 백화점 1</span>
+          </div>
+          <div class="project-sub">이미예 · 힐링 판타지</div>
+
+          <div class="project-meta">
+            <div class="meta-item">
+              <div class="meta-label">구분</div>
+              <div class="meta-value">소설</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">저자</div>
+              <div class="meta-value">이미예</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">출판사</div>
+              <div class="meta-value">팩토리나인</div>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <div class="project-body-label">책 소개</div>
+            <ul>
+              <li>잠들어야만 들어갈 수 있는 상점가에서 꿈을 파는 &lt;달러구트 꿈 백화점&gt;이 배경입니다</li>
+              <li>신입 직원 페니가 백화점에서 일하며 겪는 이야기를 따뜻하게 풀어냈습니다</li>
+            </ul>
+          </div>
+
+          <div class="tech-tags">
+            <span class="tech-tag">한국 소설</span>
+            <span class="tech-tag">힐링 판타지</span>
+          </div>
+        </div>
+
+        <div class="project-card book" data-genre="소설">
+          <div class="project-status"><span class="dot"></span>완독 · 2026.02</div>
+          <div class="project-title-row">
+            <span class="project-title">꿈의 백화점 2</span>
+          </div>
+          <div class="project-sub">이미예 · 힐링 판타지</div>
+
+          <div class="project-meta">
+            <div class="meta-item">
+              <div class="meta-label">구분</div>
+              <div class="meta-value">소설</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">저자</div>
+              <div class="meta-value">이미예</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">출판사</div>
+              <div class="meta-value">팩토리나인</div>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <div class="project-body-label">책 소개</div>
+            <ul>
+              <li>1권에 이어 꿈 백화점을 배경으로 한 이야기입니다</li>
+            </ul>
+          </div>
+
+          <div class="tech-tags">
+            <span class="tech-tag">한국 소설</span>
+            <span class="tech-tag">힐링 판타지</span>
+          </div>
+        </div>
+
+
+
       </div>
     </div>
   </section>
@@ -758,5 +958,13 @@
     })();
   </script>
 
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.gbtn')),books=[].slice.call(document.querySelectorAll('.book'));
+  btns.forEach(function(b){var g=b.getAttribute('data-g');b.querySelector('b').textContent=g==='전체'?books.length:books.filter(function(k){return k.getAttribute('data-genre')===g;}).length;
+    b.addEventListener('click',function(){btns.forEach(function(x){var on=x===b;x.classList.toggle('is-on',on);x.setAttribute('aria-pressed',on);});
+      books.forEach(function(k){k.hidden=!(g==='전체'||k.getAttribute('data-genre')===g);});});});
+})();
+</script>
 </body>
 </html>

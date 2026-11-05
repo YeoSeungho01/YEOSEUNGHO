@@ -454,6 +454,22 @@
 .book[hidden]{display:none}
 </style>
 <style>.project-title,.project-sub,.project-body li{overflow-wrap:anywhere}</style>
+<style>
+.book.compact{padding:16px 20px 16px 24px}
+.book.compact + .book.compact{margin-top:12px}
+.book-head{display:flex;align-items:baseline;justify-content:space-between;gap:6px 14px;flex-wrap:wrap}
+.book.compact .project-title{font-size:clamp(18px,2.4vw,21px)}
+.book-status{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--green);white-space:nowrap}
+.book-status .dot{width:6px;height:6px;background:var(--green);border-radius:50%}
+.book.compact .project-sub{font-size:13px;margin:2px 0 8px}
+.book-sum{font-size:14.5px;line-height:1.6;color:var(--ink);margin:0;overflow-wrap:anywhere;word-break:keep-all}
+.book-foot{display:flex;align-items:center;justify-content:space-between;gap:6px 14px;flex-wrap:wrap;margin-top:10px}
+.book.compact .tech-tags{margin-top:0;gap:6px}
+.book.compact .tech-tag{font-size:12px;padding:2px 9px}
+.book.compact .project-link{margin-top:0;font-size:13.5px}
+@media (max-width:560px){.book.compact{padding:14px 16px 14px 20px}}
+</style>
+
 </head>
 <body>
 
@@ -733,686 +749,219 @@
           <button type="button" class="gbtn" data-g="소설" aria-pressed="false">소설 <b></b></button>
           <button type="button" class="gbtn" data-g="경제·경영" aria-pressed="false">경제·경영 <b></b></button>
         </div>
-        <div class="project-card book" data-genre="IT·개발">
-          <div class="project-status"><span class="dot"></span>진행 중 · 2026.10</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="IT·개발">
+          <div class="book-head">
             <span class="project-title">클로드 코드 독서 체크리스트</span>
+            <span class="book-status"><span class="dot"></span>진행 중 · 2026.10</span>
           </div>
           <div class="project-sub">개인 학습 · 바이브코딩</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">독서 · 학습 기록</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">목표</div>
-              <div class="meta-value">3장까지 공부하기</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">사용 기술</div>
-              <div class="meta-value">HTML, CSS, JavaScript</div>
-            </div>
+          <p class="book-sum">5장과 부록 129개 항목을 소절별 체크리스트로 정리했고, 목표는 3장까지입니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">Claude Code</span><span class="tech-tag">바이브코딩</span></div><a class="project-link" href="claude-code-checklist.html">체크리스트 보기</a>
           </div>
-
-          <div class="project-body">
-            <div class="project-body-label">내용</div>
-            <ul>
-              <li>클로드 코드 책 5장과 부록, 129개 항목을 소절별로 정리하고 항목마다 읽음 체크 버튼을 두었습니다</li>
-              <li>항목별 YouTube·블로그 검색 링크와 공식 문서 링크를 함께 두어 바로 찾아볼 수 있게 했습니다</li>
-              <li>장별·전체 진행률과 목표(1~3장) 달성 여부를 표시합니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">Claude Code</span>
-            <span class="tech-tag">바이브코딩</span>
-            <span class="tech-tag">학습 관리</span>
-          </div>
-
-          <a class="project-link" href="claude-code-checklist.html">체크리스트 보기</a>
         </div>
 
-        <div class="project-card book" data-genre="IT·개발">
-          <div class="project-status"><span class="dot"></span>완독 · 2024.06</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="IT·개발">
+          <div class="book-head">
             <span class="project-title">A Tour of C++ 독서 체크리스트</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2024.06</span>
           </div>
           <div class="project-sub">Bjarne Stroustrup · C++</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">IT · 프로그래밍</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">Bjarne Stroustrup</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">사용 기술</div>
-              <div class="meta-value">HTML, CSS, JavaScript</div>
-            </div>
+          <p class="book-sum">C++ 창시자가 쓴 입문서의 19개 장 133개 절을 체크리스트로 정리했습니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">C++</span><span class="tech-tag">학습 관리</span></div><a class="project-link" href="tour-of-cpp-checklist.html">체크리스트 보기</a>
           </div>
-
-          <div class="project-body">
-            <div class="project-body-label">내용</div>
-            <ul>
-              <li>C++의 창시자가 쓴 입문서의 19개 장과 부록, 133개 절을 목차대로 정리하고 절마다 읽음 체크 버튼을 두었습니다</li>
-              <li>절별 YouTube·블로그 검색 링크와 cppreference 참고 문서 링크를 함께 두었습니다</li>
-              <li>장별·전체 진행률을 표시합니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">C++</span>
-            <span class="tech-tag">학습 관리</span>
-          </div>
-
-          <a class="project-link" href="tour-of-cpp-checklist.html">체크리스트 보기</a>
         </div>
 
-        <div class="project-card book" data-genre="IT·개발">
-          <div class="project-status"><span class="dot"></span>완독 · 2025.10</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="IT·개발">
+          <div class="book-head">
             <span class="project-title">Do it! C++ 완전 정복</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2025.10</span>
           </div>
           <div class="project-sub">조규남 · C++ 입문</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">IT · 프로그래밍</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">조규남</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">출판사</div>
-              <div class="meta-value">이지스퍼블리싱</div>
-            </div>
+          <p class="book-sum">기초 문법부터 객체지향, 모던 C++까지 4부 16장으로 구성된 입문서입니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">C++</span><span class="tech-tag">객체지향</span></div><a class="project-link" href="doit-cpp-checklist.html">체크리스트 보기</a>
           </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>C++ 기초 문법부터 객체지향, 표준 라이브러리, 모던 C++까지 4부 16장으로 구성된 입문서입니다</li>
-              <li>객체지향의 4대 특징과 SOLID 설계 원칙을 몬스터 게임 프로그램을 만들며 익힙니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">C++</span>
-            <span class="tech-tag">객체지향</span>
-            <span class="tech-tag">모던 C++</span>
-          </div>
-
-          <a class="project-link" href="doit-cpp-checklist.html">체크리스트 보기</a>
         </div>
 
-        <div class="project-card book" data-genre="IT·개발">
-          <div class="project-status"><span class="dot"></span>완독 · 2025.03</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="IT·개발">
+          <div class="book-head">
             <span class="project-title">이것이 C++이다</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2025.03</span>
           </div>
           <div class="project-sub">최호성 · C++ 입문</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">IT · 프로그래밍</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">최호성</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">출판사</div>
-              <div class="meta-value">한빛미디어</div>
-            </div>
+          <p class="book-sum">C에서 C++로 넘어가는 문법부터 객체지향, 템플릿까지 4파트 12장입니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">C++</span><span class="tech-tag">객체지향</span></div><a class="project-link" href="thisis-cpp-checklist.html">체크리스트 보기</a>
           </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>C에서 C++로 넘어가는 문법부터 객체지향, 템플릿, 예외 처리까지 4파트 12장으로 구성된 입문서입니다</li>
-              <li>마지막에 객체지향 주소록 예제를 단계별로 만들며 앞서 배운 내용을 정리합니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">C++</span>
-            <span class="tech-tag">객체지향</span>
-          </div>
-
-          <a class="project-link" href="thisis-cpp-checklist.html">체크리스트 보기</a>
         </div>
 
-        <div class="project-card book" data-genre="경제·경영">
-          <div class="project-status"><span class="dot"></span>독서 기록</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="경제·경영">
+          <div class="book-head">
             <span class="project-title">돈의 심리학</span>
+            <span class="book-status"><span class="dot"></span>독서 기록</span>
           </div>
           <div class="project-sub">모건 하우절 · 투자 · 재테크</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">경제 · 경영</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">모건 하우절</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">원제</div>
-              <div class="meta-value">The Psychology of Money</div>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>투자 지식보다 사람의 심리와 행동이 부의 격차를 만든다고 보고, 공포·탐욕·비교·후회 같은 감정을 20가지 이야기로 풀어낸 책입니다</li>
-              <li>옮긴이는 이지연이고, 출판사는 인플루엔셜입니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">투자</span>
-            <span class="tech-tag">재테크</span>
-            <span class="tech-tag">행동 심리</span>
+          <p class="book-sum">투자 지식보다 심리와 행동이 부를 가른다는 이야기를 20가지로 풀어냈습니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">투자</span><span class="tech-tag">재테크</span></div>
           </div>
         </div>
 
-        <div class="project-card book" data-genre="IT·개발">
-          <div class="project-status"><span class="dot"></span>완독 · 2026.04</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="IT·개발">
+          <div class="book-head">
             <span class="project-title">그림으로 쉽게 이해하는 웹/HTTP/네트워크</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2026.04</span>
           </div>
           <div class="project-sub">임지영 · 네트워크 입문</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">IT · 네트워크</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">임지영</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">출판사</div>
-              <div class="meta-value">위키북스</div>
-            </div>
+          <p class="book-sum">그림과 비유로 웹, HTTP, TCP/IP, OSI 7계층까지 9개 장으로 설명합니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">HTTP</span><span class="tech-tag">TCP/IP</span></div><a class="project-link" href="web-http-network-checklist.html">체크리스트 보기</a>
           </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>저자가 직접 그린 그림과 일상 속 비유로 컴퓨터 네트워크의 구조와 원리를 설명하는 입문서입니다</li>
-              <li>웹, URL, IP, TCP, HTTP, 네트워크 접속 장치, OSI 7계층까지 9개 장으로 구성되어 있습니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">HTTP</span>
-            <span class="tech-tag">TCP/IP</span>
-            <span class="tech-tag">OSI 7계층</span>
-          </div>
-
-          <a class="project-link" href="web-http-network-checklist.html">체크리스트 보기</a>
         </div>
 
-        <div class="project-card book" data-genre="IT·개발">
-          <div class="project-status"><span class="dot"></span>완독 · 2024.03</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="IT·개발">
+          <div class="book-head">
             <span class="project-title">Do it! 반응형 웹 페이지 만들기</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2024.03</span>
           </div>
           <div class="project-sub">김운아 · 웹 개발</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">IT · 웹 개발</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">김운아</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">출판사</div>
-              <div class="meta-value">이지스퍼블리싱</div>
-            </div>
+          <p class="book-sum">가변 그리드와 미디어 쿼리로 웹사이트를 반응형으로 바꾸는 과정을 담았습니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">반응형 웹</span><span class="tech-tag">HTML5</span></div><a class="project-link" href="responsive-web-checklist.html">체크리스트 보기</a>
           </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>가변 그리드, 미디어 쿼리, 뷰포트, 플렉서블 박스를 예제로 익히고, 실제 웹사이트를 HTML5와 CSS3로 반응형으로 바꾸는 과정을 담은 책입니다</li>
-              <li>3개 마당 11개 장과 스페셜로 구성되어 있습니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">반응형 웹</span>
-            <span class="tech-tag">HTML5</span>
-            <span class="tech-tag">CSS3</span>
-          </div>
-
-          <a class="project-link" href="responsive-web-checklist.html">체크리스트 보기</a>
         </div>
 
-        <div class="project-card book" data-genre="IT·개발">
-          <div class="project-status"><span class="dot"></span>완독 · 2023.11</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="IT·개발">
+          <div class="book-head">
             <span class="project-title">혼자 공부하는 자바</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2023.11</span>
           </div>
           <div class="project-sub">신용권 · Java 입문</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">IT · 프로그래밍</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">신용권</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">출판사</div>
-              <div class="meta-value">한빛미디어</div>
-            </div>
+          <p class="book-sum">변수부터 클래스, 상속, 스레드, 컬렉션까지 14개 장의 입문서입니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">Java</span><span class="tech-tag">객체지향</span></div><a class="project-link" href="hongong-java-checklist.html">체크리스트 보기</a>
           </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>자바 입문자를 위한 자습서로, 변수와 연산자부터 클래스, 상속, 인터페이스, 예외 처리, 스레드, 컬렉션, 입출력까지 14개 장으로 구성되어 있습니다</li>
-              <li>2019년판(Java 8 &amp; 11 기준) 목차에 맞춰 38개 절을 체크리스트로 정리했습니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">Java</span>
-            <span class="tech-tag">객체지향</span>
-          </div>
-
-          <a class="project-link" href="hongong-java-checklist.html">체크리스트 보기</a>
         </div>
 
-        <div class="project-card book" data-genre="IT·개발">
-          <div class="project-status"><span class="dot"></span>완독 · 2023.03</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="IT·개발">
+          <div class="book-head">
             <span class="project-title">HTML5+CSS3+Javascript 웹 프로그래밍</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2023.03</span>
           </div>
           <div class="project-sub">황기태 · 웹 개발</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">IT · 웹 개발</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">황기태</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">출판사</div>
-              <div class="meta-value">생능출판사</div>
-            </div>
+          <p class="book-sum">HTML5, CSS3, 자바스크립트를 예제 중심으로 익히는 14개 장의 책입니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span></div><a class="project-link" href="html5-css3-js-checklist.html">체크리스트 보기</a>
           </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>HTML5 태그, CSS3, 자바스크립트를 함께 다루며 웹 페이지를 만드는 과정을 예제와 실습 중심으로 설명한 책입니다</li>
-              <li>14개 장과 부록 3개로 구성되어 있고, 캔버스·웹 스토리지·위치 정보·웹 워커까지 다룹니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">HTML5</span>
-            <span class="tech-tag">CSS3</span>
-            <span class="tech-tag">JavaScript</span>
-          </div>
-
-          <a class="project-link" href="html5-css3-js-checklist.html">체크리스트 보기</a>
         </div>
 
-        <div class="project-card book" data-genre="IT·개발">
-          <div class="project-status"><span class="dot"></span>완독 · 2025.07</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="IT·개발">
+          <div class="book-head">
             <span class="project-title">C# 교과서</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2025.07</span>
           </div>
           <div class="project-sub">박용준 · C# 입문</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">IT · 프로그래밍</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">박용준</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">출판사</div>
-              <div class="meta-value">길벗</div>
-            </div>
+          <p class="book-sum">기본 문법부터 클래스, LINQ, 비동기까지 4부로 구성된 입문서입니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">C#</span><span class="tech-tag">.NET</span></div><a class="project-link" href="csharp-textbook-checklist.html">체크리스트 보기</a>
           </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>C#을 처음 배우는 독자를 위한 입문서로, 기본 문법부터 클래스, 컬렉션, LINQ, 비동기 프로그래밍까지 4부로 구성되어 있습니다</li>
-              <li>게임(유니티), 웹, 모바일 등 응용 프로그램 개발에 필요한 C# 기초를 다룹니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">C#</span>
-            <span class="tech-tag">.NET</span>
-            <span class="tech-tag">객체지향</span>
-          </div>
-
-          <a class="project-link" href="csharp-textbook-checklist.html">체크리스트 보기</a>
         </div>
 
-        <div class="project-card book" data-genre="IT·개발">
-          <div class="project-status"><span class="dot"></span>완독 · 2023.08</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="IT·개발">
+          <div class="book-head">
             <span class="project-title">혼자 공부하는 C 언어</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2023.08</span>
           </div>
           <div class="project-sub">서현우 · C 언어 입문</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">IT · 프로그래밍</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">서현우</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">출판사</div>
-              <div class="meta-value">한빛미디어</div>
-            </div>
+          <p class="book-sum">프로그램 만들기부터 포인터, 메모리, 파일 입출력까지 19개 장입니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">C 언어</span><span class="tech-tag">포인터</span></div><a class="project-link" href="hongong-c-checklist.html">체크리스트 보기</a>
           </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>독학으로 C 언어를 배우는 입문자를 위한 자습서로, 프로그램 만들기부터 포인터, 메모리 동적 할당, 파일 입출력까지 19개 장으로 구성되어 있습니다</li>
-              <li>개정판(2023) 목차에 맞춰 38개 절과 부록을 체크리스트로 정리했습니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">C 언어</span>
-            <span class="tech-tag">포인터</span>
-          </div>
-
-          <a class="project-link" href="hongong-c-checklist.html">체크리스트 보기</a>
         </div>
 
-        <div class="project-card book" data-genre="IT·개발">
-          <div class="project-status"><span class="dot"></span>완독 · 2021.03</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="IT·개발">
+          <div class="book-head">
             <span class="project-title">C# 프로그래밍 (2판)</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2021.03</span>
           </div>
           <div class="project-sub">윤인성 · C# 입문</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">IT · 프로그래밍</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">윤인성</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">출판사</div>
-              <div class="meta-value">한빛아카데미</div>
-            </div>
+          <p class="book-sum">C# 기초와 객체지향, LINQ를 13개 장 105개 절로 배우는 입문서입니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">C#</span><span class="tech-tag">객체지향</span></div><a class="project-link" href="csharp-programming-checklist.html">체크리스트 보기</a>
           </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>Visual Studio 2019와 .NET 5.0 환경에서 C#의 기초 문법과 객체지향, 델리게이트, LINQ까지 배우는 입문서입니다</li>
-              <li>13개 장 105개 절을 목차대로 체크리스트로 정리했고, 마지막 장은 도서 관리 프로그램을 만드는 프로젝트입니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">C#</span>
-            <span class="tech-tag">객체지향</span>
-            <span class="tech-tag">LINQ</span>
-          </div>
-
-          <a class="project-link" href="csharp-programming-checklist.html">체크리스트 보기</a>
         </div>
 
-        <div class="project-card book" data-genre="IT·개발">
-          <div class="project-status"><span class="dot"></span>완독 · 2021.03</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="IT·개발">
+          <div class="book-head">
             <span class="project-title">으뜸 파이썬</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2021.03</span>
           </div>
           <div class="project-sub">박동규 · 강영민 · 파이썬 입문</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">IT · 프로그래밍</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">박동규, 강영민</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">출판사</div>
-              <div class="meta-value">생능출판사</div>
-            </div>
+          <p class="book-sum">설치와 기본 문법부터 클래스, 넘파이까지 11개 장으로 구성된 입문서입니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">NumPy</span></div><a class="project-link" href="prime-python-checklist.html">체크리스트 보기</a>
           </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>파이썬 설치와 기본 문법부터 자료형, 함수, 클래스, 람다와 제너레이터, 넘파이까지 11개 장으로 구성된 입문서입니다</li>
-              <li>1판(2020) 목차에 맞춰 장마다 절과 연습문제를 체크리스트로 정리했습니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">NumPy</span>
-            <span class="tech-tag">객체지향</span>
-          </div>
-
-          <a class="project-link" href="prime-python-checklist.html">체크리스트 보기</a>
         </div>
 
-        <div class="project-card book" data-genre="경제·경영">
-          <div class="project-status"><span class="dot"></span>완독 · 2023.09</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="경제·경영">
+          <div class="book-head">
             <span class="project-title">올 댓 매너</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2023.09</span>
           </div>
           <div class="project-sub">김은정 · 문시정 · 경영 일반</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">경제 · 경영</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">김은정, 문시정</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">출판사</div>
-              <div class="meta-value">백산출판사</div>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>2023년 9월에 백산출판사에서 나온 책으로, 서점에서는 경영 일반(경영이론) 분류의 전문서로 소개됩니다</li>
-              <li>영업과 판매에 관한 내용을 담은 책이라는 안내가 있습니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">매너</span>
-            <span class="tech-tag">영업</span>
-            <span class="tech-tag">경영</span>
+          <p class="book-sum">서점에서 경영 일반 전문서로 소개되며, 영업과 판매를 다룹니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">매너</span><span class="tech-tag">영업</span></div>
           </div>
         </div>
 
-        <div class="project-card book" data-genre="소설">
-          <div class="project-status"><span class="dot"></span>완독 · 2026.01</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="소설">
+          <div class="book-head">
             <span class="project-title">미드나잇 라이브러리</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2026.01</span>
           </div>
           <div class="project-sub">매트 헤이그 · 소설</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">소설</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">매트 헤이그</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">원제</div>
-              <div class="meta-value">The Midnight Library</div>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>삶과 죽음 사이에 놓인 주인공 노라가, 선택하지 않은 삶이 책 한 권씩 꽂힌 도서관에서 다른 인생을 살아 보는 이야기입니다</li>
-              <li>후회와 선택, 그리고 지금의 삶의 의미를 다루고 있습니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">소설</span>
-            <span class="tech-tag">선택과 후회</span>
+          <p class="book-sum">선택하지 않은 삶이 책으로 꽂힌 도서관에서 노라가 다른 인생을 살아 봅니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">소설</span><span class="tech-tag">선택과 후회</span></div>
           </div>
         </div>
 
-        <div class="project-card book" data-genre="소설">
-          <div class="project-status"><span class="dot"></span>완독 · 2026.02</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="소설">
+          <div class="book-head">
             <span class="project-title">혼자서 종이우산을 쓰고 가다</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2026.02</span>
           </div>
           <div class="project-sub">에쿠니 가오리 · 일본 소설</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">소설</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">에쿠니 가오리</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">원제</div>
-              <div class="meta-value">ひとりでカラカサさしてゆく</div>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>하나의 사건을 계기로, 남겨진 여러 인물의 일상이 흔들리고 이어지는 과정을 그린 장편소설입니다</li>
-              <li>담담하고 섬세한 문체로 상실과 삶의 끝을 다루고 있습니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">일본 소설</span>
-            <span class="tech-tag">상실</span>
+          <p class="book-sum">하나의 사건 이후 남겨진 사람들의 일상을 담담하게 그린 장편소설입니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">일본 소설</span><span class="tech-tag">상실</span></div>
           </div>
         </div>
 
-        <div class="project-card book" data-genre="소설">
-          <div class="project-status"><span class="dot"></span>완독 · 2026.02</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="소설">
+          <div class="book-head">
             <span class="project-title">꿈의 백화점 1</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2026.02</span>
           </div>
           <div class="project-sub">이미예 · 힐링 판타지</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">소설</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">이미예</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">출판사</div>
-              <div class="meta-value">팩토리나인</div>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>잠들어야만 들어갈 수 있는 상점가에서 꿈을 파는 &lt;달러구트 꿈 백화점&gt;이 배경입니다</li>
-              <li>신입 직원 페니가 백화점에서 일하며 겪는 이야기를 따뜻하게 풀어냈습니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">한국 소설</span>
-            <span class="tech-tag">힐링 판타지</span>
+          <p class="book-sum">잠들어야 갈 수 있는 상점가의 꿈 백화점에서 신입 직원 페니가 일합니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">한국 소설</span><span class="tech-tag">힐링 판타지</span></div>
           </div>
         </div>
 
-        <div class="project-card book" data-genre="소설">
-          <div class="project-status"><span class="dot"></span>완독 · 2026.02</div>
-          <div class="project-title-row">
+        <div class="project-card book compact" data-genre="소설">
+          <div class="book-head">
             <span class="project-title">꿈의 백화점 2</span>
+            <span class="book-status"><span class="dot"></span>완독 · 2026.02</span>
           </div>
           <div class="project-sub">이미예 · 힐링 판타지</div>
-
-          <div class="project-meta">
-            <div class="meta-item">
-              <div class="meta-label">구분</div>
-              <div class="meta-value">소설</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">저자</div>
-              <div class="meta-value">이미예</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">출판사</div>
-              <div class="meta-value">팩토리나인</div>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <div class="project-body-label">책 소개</div>
-            <ul>
-              <li>1권에 이어 꿈 백화점을 배경으로 한 이야기입니다</li>
-            </ul>
-          </div>
-
-          <div class="tech-tags">
-            <span class="tech-tag">한국 소설</span>
-            <span class="tech-tag">힐링 판타지</span>
+          <p class="book-sum">1권에 이어 꿈 백화점을 배경으로 한 이야기입니다.</p>
+          <div class="book-foot">
+            <div class="tech-tags"><span class="tech-tag">한국 소설</span><span class="tech-tag">힐링 판타지</span></div>
           </div>
         </div>
 

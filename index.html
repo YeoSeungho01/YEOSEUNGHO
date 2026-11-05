@@ -455,6 +455,13 @@
 </style>
 <style>.project-title,.project-sub,.project-body li{overflow-wrap:anywhere}</style>
 <style>
+.play-list{margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
+.play-title{font-family:'Nanum Myeongjo',serif;font-weight:700;font-size:clamp(22px,3vw,28px);color:var(--ink);margin:0 0 12px}
+.play-empty{font-size:14.5px;color:var(--ink-dim);padding:18px 20px;border:1px dashed var(--line);margin:0}
+.play-list .project-card + .project-card{margin-top:12px}
+</style>
+
+<style>
 .book.compact{padding:16px 20px 16px 24px}
 .book.compact + .book.compact{margin-top:12px}
 .book-head{display:flex;align-items:baseline;justify-content:space-between;gap:6px 14px;flex-wrap:wrap}
@@ -963,6 +970,24 @@
           <div class="book-foot">
             <div class="tech-tags"><span class="tech-tag">한국 소설</span><span class="tech-tag">힐링 판타지</span></div>
           </div>
+        </div>
+
+        <div class="play-list" id="play-list">
+          <h2 class="play-title">게임 플레이 목록</h2>
+          <p class="play-empty">플레이한 게임을 정리하는 중입니다. 곧 추가됩니다.</p>
+          <!-- 게임 추가 양식 (독서 카드와 같은 형태):
+          <div class="project-card compact play">
+            <div class="book-head">
+              <span class="project-title">게임 이름</span>
+              <span class="book-status"><span class="dot"></span>플레이 중 · 2026.10</span>
+            </div>
+            <div class="project-sub">장르 · 플랫폼</div>
+            <p class="book-sum">한 줄 소감</p>
+            <div class="book-foot">
+              <div class="tech-tags"><span class="tech-tag">태그</span></div>
+            </div>
+          </div>
+          -->
         </div>
 
 

@@ -463,19 +463,19 @@
 </style>
 
 <style>
-.book.compact{padding:16px 20px 16px 24px}
-.book.compact + .book.compact{margin-top:12px}
+.compact{padding:16px 20px 16px 24px}
+.compact + .compact{margin-top:12px}
 .book-head{display:flex;align-items:baseline;justify-content:space-between;gap:6px 14px;flex-wrap:wrap}
-.book.compact .project-title{font-size:clamp(18px,2.4vw,21px)}
+.compact .project-title{font-size:clamp(18px,2.4vw,21px)}
 .book-status{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--green);white-space:nowrap}
 .book-status .dot{width:6px;height:6px;background:var(--green);border-radius:50%}
-.book.compact .project-sub{font-size:13px;margin:2px 0 8px}
+.compact .project-sub{font-size:13px;margin:2px 0 8px}
 .book-sum{font-size:14.5px;line-height:1.6;color:var(--ink);margin:0;overflow-wrap:anywhere;word-break:keep-all}
 .book-foot{display:flex;align-items:center;justify-content:space-between;gap:6px 14px;flex-wrap:wrap;margin-top:10px}
-.book.compact .tech-tags{margin-top:0;gap:6px}
-.book.compact .tech-tag{font-size:12px;padding:2px 9px}
-.book.compact .project-link{margin-top:0;font-size:13.5px}
-@media (max-width:560px){.book.compact{padding:14px 16px 14px 20px}}
+.compact .tech-tags{margin-top:0;gap:6px}
+.compact .tech-tag{font-size:12px;padding:2px 9px}
+.compact .project-link{margin-top:0;font-size:13.5px}
+@media (max-width:560px){.compact{padding:14px 16px 14px 20px}}
 </style>
 
 </head>
@@ -985,7 +985,17 @@
       <div class="section-label"><span class="num">05</span>게임</div>
       <div>
         <div class="play-list" id="play-list" style="margin-top:0;padding-top:0;border-top:0">
-          <p class="play-empty">플레이한 게임을 정리하는 중입니다. 곧 추가됩니다.</p>
+          <div class="project-card compact play">
+            <div class="book-head">
+              <span class="project-title">로스트 아크</span>
+              <span class="book-status"><span class="dot"></span>플레이 중 · 2019.12 ~ 현재</span>
+            </div>
+            <div class="project-sub">Smilegate RPG · MMORPG</div>
+            <p class="book-sum">스마일게이트 RPG가 개발한 쿼터뷰 액션 MMORPG입니다.</p>
+            <div class="book-foot">
+              <div class="tech-tags"><span class="tech-tag">MMORPG</span><span class="tech-tag">PC 게임</span></div>
+            </div>
+          </div>
           <!-- 게임 추가 양식 (독서 카드와 같은 형태):
           <div class="project-card compact play">
             <div class="book-head">

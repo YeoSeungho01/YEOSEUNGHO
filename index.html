@@ -407,8 +407,9 @@
   /* ---------- RESPONSIVE ---------- */
 
   @media (max-width:900px){
-    .layout{ grid-template-columns:1fr; }
+    .layout{ grid-template-columns:minmax(0,1fr); }
     .sidebar{
+      min-width:0;
       position:static;
       height:auto;
       padding:28px 22px 0;
@@ -495,6 +496,7 @@
         <li><a href="#education" data-panel="education">학력</a></li>
         <li><a href="#project" data-panel="project">프로젝트</a></li>
         <li><a href="#reading" data-panel="reading">독서</a></li>
+        <li><a href="#games" data-panel="games">게임</a></li>
       </ul>
     </nav>
 
@@ -972,8 +974,17 @@
           </div>
         </div>
 
-        <div class="play-list" id="play-list">
-          <h2 class="play-title">게임 플레이 목록</h2>
+
+
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="games">
+    <div class="wrap section-grid">
+      <div class="section-label"><span class="num">05</span>게임</div>
+      <div>
+        <div class="play-list" id="play-list" style="margin-top:0;padding-top:0;border-top:0">
           <p class="play-empty">플레이한 게임을 정리하는 중입니다. 곧 추가됩니다.</p>
           <!-- 게임 추가 양식 (독서 카드와 같은 형태):
           <div class="project-card compact play">
@@ -989,9 +1000,6 @@
           </div>
           -->
         </div>
-
-
-
       </div>
     </div>
   </section>
@@ -1010,7 +1018,7 @@
 
   <script>
     (function(){
-      var ids = ['about', 'education', 'project', 'reading'];
+      var ids = ['about', 'education', 'project', 'reading', 'games'];
       var links = document.querySelectorAll('.side-nav a');
 
       function show(id){

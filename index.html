@@ -452,7 +452,10 @@
 .gbtn.is-on{background:var(--scale-dim);border-color:var(--scale-dim);color:#fff}
 .gbtn.is-on b{color:#fff}
 .gbtn:focus-visible{outline:3px solid var(--scale);outline-offset:2px}
-.book[hidden]{display:none}
+.book[hidden],.project-card[hidden]{display:none}
+.g-empty{font-size:14.5px;color:var(--ink-dim);padding:18px 20px;border:1px dashed var(--line);margin:0 0 20px}
+.gbtn.is-empty{color:var(--ink-faint)}
+.gbtn.is-empty.is-on{color:#fff}
 </style>
 <style>.project-title,.project-sub,.project-body li{overflow-wrap:anywhere}</style>
 <style>
@@ -547,7 +550,15 @@
     <div class="wrap section-grid">
       <div class="section-label"><span class="num">03</span>프로젝트</div>
       <div>
-        <div class="project-card">
+        <div class="genre-bar" role="group" aria-label="분야 선택">
+          <button type="button" class="gbtn is-on" data-g="전체" aria-pressed="true">전체 <b></b></button>
+          <button type="button" class="gbtn" data-g="개발" aria-pressed="false">개발 <b></b></button>
+          <button type="button" class="gbtn" data-g="기획" aria-pressed="false">기획 <b></b></button>
+          <button type="button" class="gbtn" data-g="QA" aria-pressed="false">QA <b></b></button>
+          <button type="button" class="gbtn" data-g="그래픽" aria-pressed="false">그래픽 <b></b></button>
+        </div>
+        <p class="g-empty" hidden>이 분야에 해당하는 프로젝트는 아직 없습니다.</p>
+        <div class="project-card" data-genre="개발">
           <div class="project-status"><span class="dot"></span>진행 중 · 2026.07 — 현재</div>
           <div class="project-title-row">
             <span class="project-title">역린</span>
@@ -584,7 +595,7 @@
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-genre="기획">
           <div class="project-status"><span class="dot"></span>2026.04 — 2026.07</div>
           <div class="project-title-row">
             <span class="project-title">Beastrium</span>
@@ -624,7 +635,7 @@
           <a class="project-link" href="https://app.notion.com/p/3D-_4-330b932f3ff38052a2e5eafb3d9cd295?source=copy_link" target="_blank" rel="noopener noreferrer">프로젝트 문서 보기 (Notion)</a>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-genre="기획">
           <div class="project-status"><span class="dot"></span>2026.10</div>
           <div class="project-title-row">
             <span class="project-title">트릭컬 리바이브 재미 분석</span>
@@ -664,7 +675,7 @@
           <a class="project-link" href="trickle-analysis.html">분석 결과 보기</a>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-genre="기획">
           <div class="project-status"><span class="dot"></span>2026.11</div>
           <div class="project-title-row">
             <span class="project-title">니케 매출 순위 급등 원인 분석</span>
@@ -704,7 +715,7 @@
           <a class="project-link" href="nikke-rank-analysis.html">보고서 보기</a>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-genre="기획">
           <div class="project-status"><span class="dot"></span>2026.11</div>
           <div class="project-title-row">
             <span class="project-title">소드 x 스태프 화산귀환 콜라보 재미 분석</span>
@@ -744,7 +755,7 @@
           <a class="project-link" href="sword-staff-analysis.html">보고서 보기</a>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-genre="기획">
           <div class="project-status"><span class="dot"></span>2026.11</div>
           <div class="project-title-row">
             <span class="project-title">니케 「체포 작전」 코스튬 박스 기획</span>
@@ -784,7 +795,7 @@
           <a class="project-link" href="nikke-arrest-box.html">기획서 보기</a>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-genre="개발">
           <div class="project-status"><span class="dot"></span>2026.05 — 2026.09</div>
           <div class="project-title-row">
             <span class="project-title">TeleDigest</span>
@@ -1135,10 +1146,19 @@
 
 <script>
 (function(){
-  var btns=[].slice.call(document.querySelectorAll('.gbtn')),books=[].slice.call(document.querySelectorAll('.book'));
-  btns.forEach(function(b){var g=b.getAttribute('data-g');b.querySelector('b').textContent=g==='전체'?books.length:books.filter(function(k){return k.getAttribute('data-genre')===g;}).length;
-    b.addEventListener('click',function(){btns.forEach(function(x){var on=x===b;x.classList.toggle('is-on',on);x.setAttribute('aria-pressed',on);});
-      books.forEach(function(k){k.hidden=!(g==='전체'||k.getAttribute('data-genre')===g);});});});
+  [].slice.call(document.querySelectorAll('.genre-bar')).forEach(function(bar){
+    var box=bar.parentNode,btns=[].slice.call(bar.querySelectorAll('.gbtn')),items=[].slice.call(box.querySelectorAll('[data-genre]')),empty=box.querySelector('.g-empty');
+    btns.forEach(function(b){
+      var g=b.getAttribute('data-g'),n=g==='전체'?items.length:items.filter(function(k){return k.getAttribute('data-genre')===g;}).length;
+      b.querySelector('b').textContent=n;
+      if(n===0)b.classList.add('is-empty');
+      b.addEventListener('click',function(){
+        btns.forEach(function(x){var on=x===b;x.classList.toggle('is-on',on);x.setAttribute('aria-pressed',on);});
+        items.forEach(function(k){k.hidden=!(g==='전체'||k.getAttribute('data-genre')===g);});
+        if(empty)empty.hidden=n!==0;
+      });
+    });
+  });
 })();
 </script>
 </body>
